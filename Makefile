@@ -6,7 +6,7 @@
 #    By: rel-qoqu <rel-qoqu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/16 11:08:03 by rel-qoqu          #+#    #+#              #
-#    Updated: 2025/09/17 22:58:05 by rel-qoqu         ###   ########.fr        #
+#    Updated: 2025/09/17 22:58:56 by rel-qoqu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ ifeq ($(MODE), release)
 	C_FLAGS += $(C_RELEASE_FLAGS)
 else ifeq ($(MODE), debug)
 	C_FLAGS += $(C_DEBUG_FLAGS)
-	NAME = ft_termcap_debug
+	NAME = ft_terminfo_debug
 	OBJ_DIR = obj_debug
 	STATIC_LIB = lib$(NAME).a
 	SHARED_LIB = lib$(NAME).so
