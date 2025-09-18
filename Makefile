@@ -6,7 +6,7 @@
 #    By: rel-qoqu <rel-qoqu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/16 11:08:03 by rel-qoqu          #+#    #+#              #
-#    Updated: 2025/09/17 22:58:56 by rel-qoqu         ###   ########.fr        #
+#    Updated: 2025/09/18 12:28:18 by rel-qoqu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,10 @@ C_RELEASE_FLAGS		= -O2 -funroll-loops -fomit-frame-pointer -DNDEBUG
 
 LIBFT_A				= libft/libft.a
 
-SRCS_FILES			=
+INTERNAL_FILES		= internal/hash_termname.c internal/ft_terminfo_init.c internal/ft_terminfo_destroy_entry.c \
+						internal/ft_terminfo_destroy.c
+SRCS_FILES			= $(INTERNAL_FILES) ft_del_curterm.c ft_setupterm.c ft_tgetflag.c \
+						ft_tgetnum.c ft_tgetstr.c ft_tputs.c
 SRCS				:= $(addprefix $(SRC_DIR)/, $(SRCS_FILES))
 OBJS				= $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 DEPS				= $(patsubst $(SRC_DIR)/%.c, $(DEP_DIR)/%.d, $(SRCS))
