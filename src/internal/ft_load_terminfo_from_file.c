@@ -6,7 +6,7 @@
 /*   By: rel-qoqu <rel-qoqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 17:28:05 by rel-qoqu          #+#    #+#             */
-/*   Updated: 2025/09/18 17:51:52 by rel-qoqu         ###   ########.fr       */
+/*   Updated: 2025/09/18 19:47:29 by rel-qoqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@ static void	*alloc_and_read(t_ft_file *fp, const struct stat *st, size_t *size)
 {
 	void	*buffer;
 
-	buffer = malloc(st->st_size);
+	buffer = malloc((size_t)st->st_size);
 	if (buffer == NULL)
 		return (NULL);
-	if (ft_fread(buffer, 1, st->st_size, fp) != (size_t)st->st_size)
+	if (ft_fread(buffer, 1, (size_t)st->st_size, fp) != (size_t)st->st_size)
 	{
 		free(buffer);
 		return (NULL);
 	}
-	*size = st->st_size;
+	*size = (size_t)st->st_size;
 	return (buffer);
 }
 

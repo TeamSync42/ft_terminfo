@@ -6,7 +6,7 @@
 /*   By: rel-qoqu <rel-qoqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 12:44:11 by rel-qoqu          #+#    #+#             */
-/*   Updated: 2025/09/18 18:26:34 by rel-qoqu         ###   ########.fr       */
+/*   Updated: 2025/09/18 19:46:03 by rel-qoqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 typedef struct s_terminfo_header {
 	int16_t	magic;
-	int16_t	name_size;
+	int16_t	n_sz;
 	int16_t	bool_count;
 	int16_t	num_count;
 	int16_t	str_count;
@@ -37,15 +37,15 @@ t_terminfo_entry	*ft_parse_terminfo(void *file_buffer)
 	if (!etr)
 		return (NULL);
 	ptr = (char *)file_buffer;
-	ptr += sizeof(t_terminfo_header) + hdr->name_size + (hdr->name_size & 1);
+	ptr += sizeof(t_terminfo_header) + (size_t)hdr->n_sz + (hdr->n_sz & 1);
 	ft_memcpy(etr->bools, ptr, (size_t)(hdr->bool_count + 7) >> 3);
 	ptr += (hdr->bool_count + 7) >> 3;
-	if ((hdr->bool_count + hdr->name_size) & 1)
+	if ((hdr->bool_count + hdr->n_sz) & 1)
 		ptr++;
 	ft_memcpy(etr->nums, ptr, (size_t)hdr->num_count * sizeof(int16_t));
-	ptr += hdr->num_count * sizeof(int16_t);
+	ptr += (size_t)hdr->num_count * sizeof(int16_t);
 	ft_memcpy(etr->str_offsets, ptr, (size_t)hdr->str_count * sizeof(int16_t));
-	ptr += hdr->str_count * sizeof(int16_t);
+	ptr += (size_t)hdr->str_count * sizeof(int16_t);
 	ft_memcpy(etr->str_pool, ptr, (size_t)hdr->str_size);
 	return (etr);
 }
