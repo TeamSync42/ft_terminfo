@@ -6,7 +6,7 @@
 /*   By: rel-qoqu <rel-qoqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 12:44:11 by rel-qoqu          #+#    #+#             */
-/*   Updated: 2025/09/18 13:03:05 by rel-qoqu         ###   ########.fr       */
+/*   Updated: 2025/09/18 13:06:17 by rel-qoqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ t_terminfo_entry	*ft_parse_terminfo(void *file_buffer)
 		return (NULL);
 	ptr = (char *)file_buffer;
 	ptr += sizeof(t_terminfo_header) + hdr->name_size + (hdr->name_size & 1);
-	ft_memcpy(etr->bools, ptr, (size_t)(hdr->bool_count + 7) / 8);
-	ptr += (hdr->bool_count + 7) / 8;
+	ft_memcpy(etr->bools, ptr, (size_t)(hdr->bool_count + 7) >> 3);
+	ptr += (hdr->bool_count + 7) >> 3;
 	if ((hdr->bool_count + hdr->name_size) & 1)
 		ptr++;
 	ft_memcpy(etr->nums, ptr, (size_t)hdr->num_count * sizeof(int16_t));
