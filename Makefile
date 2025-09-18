@@ -33,7 +33,7 @@ LIBFT_A				= libft/libft.a
 
 INTERNAL_FILES		= internal/hash_termname.c internal/ft_terminfo_init.c internal/ft_terminfo_destroy_entry.c \
 						internal/ft_terminfo_destroy.c internal/ft_get_terminfo_entry.c internal/ft_cache_add.c \
-						internal/ft_parse_terminfo.c
+						internal/ft_parse_terminfo.c internal/ft_load_terminfo_from_file.c
 SRCS_FILES			= $(INTERNAL_FILES) ft_del_curterm.c ft_setupterm.c ft_tgetflag.c \
 						ft_tgetnum.c ft_tgetstr.c ft_tputs.c
 SRCS				:= $(addprefix $(SRC_DIR)/, $(SRCS_FILES))
