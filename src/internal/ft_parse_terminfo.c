@@ -6,7 +6,7 @@
 /*   By: rel-qoqu <rel-qoqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 12:44:11 by rel-qoqu          #+#    #+#             */
-/*   Updated: 2025/09/18 13:06:17 by rel-qoqu         ###   ########.fr       */
+/*   Updated: 2025/09/18 18:26:34 by rel-qoqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_terminfo_entry	*ft_parse_terminfo(void *file_buffer)
 	if (!file_buffer)
 		return (NULL);
 	hdr = (t_terminfo_header *)file_buffer;
-	if (hdr->magic != 0x010c && hdr->magic != 0x10d)
+	if (hdr->magic != 0x010c && hdr->magic != 0x010d)
 		return (NULL);
 	etr = malloc(sizeof(t_terminfo_entry));
 	if (!etr)
