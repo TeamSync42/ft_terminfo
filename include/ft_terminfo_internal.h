@@ -6,7 +6,7 @@
 /*   By: rel-qoqu <rel-qoqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 11:54:31 by rel-qoqu          #+#    #+#             */
-/*   Updated: 2025/09/18 12:25:38 by rel-qoqu         ###   ########.fr       */
+/*   Updated: 2025/09/18 18:58:26 by rel-qoqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,7 @@
 # define FT_TERMINFO_INTERNAL_H
 
 # include <stddef.h>
-# include <stdint.h>
-
-# define MAX_BOOLS_CAPS	512
-# define MAX_NUMS_CAPS	512
-# define MAX_STRS_CAPS	512
-
-# define CAP_CUP_IDX	12
-# define CAP_CLEAR_IDX	14
-
-# define CACHE_SIZE		1024
-
-typedef struct s_terminfo_entry {
-	uint8_t	bools[(MAX_BOOLS_CAPS + 7) / 8];
-	int16_t	nums[MAX_NUMS_CAPS];
-	int16_t	str_offsets[MAX_STRS_CAPS];
-	char	*str_pool;
-}	t_terminfo_entry;
-
-typedef struct s_terminfo_session {
-	t_terminfo_entry	*current_terminfo;
-	t_terminfo_entry	*cache[CACHE_SIZE];
-}	t_terminfo_session;
+# include "terminfo_types.h"
 
 t_terminfo_session	*ft_terminfo_init(void);
 void				ft_terminfo_destroy(t_terminfo_session *session);
