@@ -6,7 +6,7 @@
 /*   By: rel-qoqu <rel-qoqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 11:48:09 by rel-qoqu          #+#    #+#             */
-/*   Updated: 2025/09/18 19:03:37 by rel-qoqu         ###   ########.fr       */
+/*   Updated: 2025/09/19 17:03:42 by rel-qoqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ t_terminfo_session	*ft_setupterm(const char *term, const int32_t fildes,
 			*errret = -1;
 		return (NULL);
 	}
+	session->get_bool_index = get_bool_capacity_by_name;
 	entry = ft_get_terminfo_entry(session, term);
 	if (!entry)
 	{
