@@ -6,7 +6,7 @@
 /*   By: rel-qoqu <rel-qoqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 18:57:26 by rel-qoqu          #+#    #+#             */
-/*   Updated: 2025/09/19 16:50:01 by rel-qoqu         ###   ########.fr       */
+/*   Updated: 2025/09/20 00:46:52 by rel-qoqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ typedef struct s_terminfo_entry {
 typedef struct s_terminfo_session {
 	t_terminfo_entry	*current_terminfo;
 	t_terminfo_entry	*cache[CACHE_SIZE];
-	int32_t				(*get_bool_index)(const char *id);
 }	t_terminfo_session;
 
 #endif // TERMINFO_TYPES_H

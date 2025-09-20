@@ -6,7 +6,7 @@
 /*   By: rel-qoqu <rel-qoqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 22:59:32 by rel-qoqu          #+#    #+#             */
-/*   Updated: 2025/09/18 19:00:06 by rel-qoqu         ###   ########.fr       */
+/*   Updated: 2025/09/20 00:28:47 by rel-qoqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ t_terminfo_session	*ft_setupterm(const char *term, int32_t fildes,
 						int32_t *errret);
 void				ft_del_curterm(t_terminfo_session *session);
 
-int32_t				ft_tgetflag(const char *id);
-int32_t				ft_tgetnum(const char *id);
+int32_t				ft_tgetflag(t_terminfo_session *session, const char *id);
+int32_t				ft_tgetnum(t_terminfo_session *session, const char *id);
 char				*ft_tgetstr(t_terminfo_session *session, const char *id,
 						char **area);
-int32_t				ft_tputs(const char *str, int32_t affcnt,
-						int32_t (*putc)(int32_t));
+int32_t				ft_tputs(t_terminfo_session *session, const char *str,
+						int32_t affcnt, int32_t (*putc)(int32_t));
 
 #endif // FT_TERMINFO_H
