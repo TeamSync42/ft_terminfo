@@ -6,7 +6,7 @@
 #    By: rel-qoqu <rel-qoqu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/16 11:08:03 by rel-qoqu          #+#    #+#              #
-#    Updated: 2025/09/20 07:12:44 by rel-qoqu         ###   ########.fr        #
+#    Updated: 2025/09/20 14:29:51 by rel-qoqu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,7 @@ clean:
 	@rm -rf $(OBJ_DIR)*
 
 fclean: clean
-	@rm -f $(STATIC_LIB) $(SHARED_LIB)
+	@rm -f libft_terminfo*
 
 re: fclean all
 
